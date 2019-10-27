@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.logo-text img {
+	width: 130px;
+	height: 40px;
+}
+
+.error {
+	font-size: 11px;
+	color: red;
+}
