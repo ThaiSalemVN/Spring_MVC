@@ -174,7 +174,7 @@ if(${message=='deleteFalse'}){
 							<form:input path="photo" hidden="true" id="inputHinh" />
 							<div class="custom-file">
 								<input type="file" id="uploadInputFile" name="imageNew"
-									accept="image/*" />
+									accept="image/*" onchange="readURL(this);" />
 							</div>
 						</div>
 
@@ -331,6 +331,19 @@ var contextPath = window.location.protocol + "/" + window.location.pathname.spli
             window.location.href= contextPath + "/admin/staffs/home.htm?page="+page;
         });
     });
-    
+	
+	//Hiện hình sau khi chọn file ảnh.
+        function readURL(input) {
+    	  if (input.files && input.files[0]) {
+    	    var reader = new FileReader();
+    	    reader.onload = function (e) {
+    	      $('#my_image')
+    	        .attr('src', e.target.result)
+    	         .width(200)
+    	        .height(200); 
+    	    };
+    	    reader.readAsDataURL(input.files[0]);
+    	  }
+    	}
     
 </script>
